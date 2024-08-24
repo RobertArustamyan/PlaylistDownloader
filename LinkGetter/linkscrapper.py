@@ -33,10 +33,9 @@ class LinksParser:
         self.driver.implicitly_wait(30)
         return self.driver.page_source
 
-    def getLinks(self, link):
-        pageHtml = self.playlistHtml(link=link)
-        soup = BeautifulSoup(pageHtml, 'lxml')
-
+    @staticmethod
+    def getLinks(html):
+        soup = BeautifulSoup(html, 'lxml')
         thumbnails = soup.find_all('a', id='thumbnail')
         urls = []
         for a in thumbnails:
@@ -45,7 +44,13 @@ class LinksParser:
                 urls.append('https://www.youtube.com' + href)
         return urls[1:]
 
+    def playlistLinks(self, link):
+        plHtml = self.playlistHtml(link=link)
+        links = self.getLinks(html=plHtml)
+        self.driver.quit()
+        return links
+
 
 if __name__ == '__main__':
     parser = LinksParser()
-    print(parser.getLinks(os.getenv('PlaylistLink')))
+    print(parser.playlistLinks(os.getenv('PlaylistLink')))
