@@ -33,6 +33,7 @@ and then downloads mp3 from each video.
 
    - Install the [Cookie Quick Manager](https://addons.mozilla.org/en-US/firefox/addon/cookie-quick-manager/) extension if you use Firefox.
    - Export your YouTube cookies as a JSON file and save them in root directory of project.
+   ![Cookies](CookiesImage.jpg)
 2. **Run the downloader**
    ```shell
    python main.py
