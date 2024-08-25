@@ -1,5 +1,8 @@
 # YouTube Playlist Downloader
 
+[![YouTube](https://img.shields.io/badge/YouTube-Video-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/)
+[![MP3](https://img.shields.io/badge/Audio-MP3-blue?style=for-the-badge&logo=music&logoColor=white)](https://en.wikipedia.org/wiki/MP3)
+
 This project allows you to download audio from YouTube playlist videos and convert them into MP3
 format using `yt-dlp` and `pydub`. The project uses Selenium to scrape video links from a playlist
 and then downloads mp3 from each video.
@@ -36,3 +39,4 @@ and then downloads mp3 from each video.
    ```
 
 ## Licence
+This project is licensed under the MIT License. See the  `LICENSE` file for details.
