@@ -4,10 +4,18 @@ import os
 
 
 class YouTubeDownloader:
+    """
+    Class that extracts and downloads mp3 from YouTube video.
+    """
+
     def __init__(self, urls):
         self.urls = urls
 
     def downloadMP3(self, output_path='Playlists'):
+        """
+        Downloads song in mp3 format.
+        :param output_path: The path of folder where songs will be saved.
+        """
         if not os.path.exists(output_path):
             os.makedirs(output_path)
 
@@ -35,10 +43,10 @@ class YouTubeDownloader:
 
 
 if __name__ == '__main__':
+    # Test links of videos
     links = \
         ['https://www.youtube.com/watch?v=hqqkyyjAJis&list=PLu3AETzBHBLwgkry7ZenIDxoxGpIXkeSZ&index=1&pp=iAQB8AUB',
          'https://www.youtube.com/watch?v=DTz5k-8AzJo&list=PLu3AETzBHBLwgkry7ZenIDxoxGpIXkeSZ&index=2&pp=iAQB8AUB']
-
 
     downloader = YouTubeDownloader(links)
     downloader.downloadMP3()
