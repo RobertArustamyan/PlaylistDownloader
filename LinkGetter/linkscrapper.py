@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
+import time
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 import os
@@ -50,6 +51,18 @@ class LinksParser:
         """
         self._playlistConnection(link=link)
         self.driver.implicitly_wait(30)
+
+        scroll_pause_time = 2  # Pause to allow content to load
+        last_height = self.driver.execute_script("return document.documentElement.scrollHeight")
+
+        while True:
+            self.driver.execute_script("window.scrollTo(0, document.documentElement.scrollHeight);")
+            time.sleep(scroll_pause_time)
+            new_height = self.driver.execute_script("return document.documentElement.scrollHeight")
+            if new_height == last_height:
+                break
+            last_height = new_height
+
         return self.driver.page_source
 
     @staticmethod
